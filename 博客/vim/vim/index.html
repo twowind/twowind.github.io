@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title></title>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.jpg " type="image/x-icon" />
+
+  
+<link rel="stylesheet" href="../../../css/index.css">
+
+</head>
+
+  <body>
+    <div class="nav-layout">
+    <div class="nav-content">
+        <div class="nav-header">
+    <span>目录</span>
+    <div></div>
+</div> 
+        <ul class="nav-categories">
+
+ 
+    <li class="nav-item">
+        <a href="http://localhost:4000/categories/博客 ">博客 </a>
+    </li>
+ 
+
+ 
+    <li class="nav-item">
+        <a href="http://localhost:4000/categories/笔记 ">笔记 </a>
+    </li>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+</ul>
+    </div>
+</div> 
+
+    <div class="header">
+    <div class="avatar">
+    <img src="/img/avatar.jpg " alt="twowind" />
+</div> 
+    <div class="logo">
+        twowind
+    </div>
+    <div class="menu">
+  <input type="checkbox" id="burger-toggle" />
+  <label for="burger-toggle" class="burger-menu">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </label>
+  <div class="switch_background"></div>
+</div>
+ 
+</div>
+
+
+
+    <div class="post">
+    <div>
+
+    </div>
+    <div class="post-content">
+        <div class="markdown-body">
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Linux下的一个经典的编辑器，有人恨有人爱，我嘛，拿来装装13.</p>
+<p>下面是一张vim的经典图。</p>
+<p><img src="https://s2.loli.net/2022/04/06/jhBWQFiYwebtXng.gif" alt="vi-vim-cheat-sheet-sch1"></p>
+<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>vim有几种模式：</p>
+<ul>
+<li><p>normal模式：可以进行光标移动与文字操作</p>
+</li>
+<li><p>insert模式：可以进行文字输入</p>
+</li>
+<li><p>visual模式：可以选中文字</p>
+</li>
+<li><p>command模式：执行vim命令</p>
+</li>
+</ul>
+<h3 id="模式切换"><a href="#模式切换" class="headerlink" title="模式切换"></a>模式切换</h3><p>进入时处在normal模式，切换至insert模式：</p>
+<ul>
+<li>i：从光标前开始输入，I：从行前开始输入</li>
+<li>a：从光标后开始输入，A：从行后开始输入</li>
+<li>o：向下另起一行开始输入，O：向上另起一行开始输入</li>
+<li>s：删除光标字符并开始输入，S：删除行并开始输入</li>
+<li>c：</li>
+<li>r：替换当前的字符，R：进入替换模式</li>
+</ul>
+<p>切换至visual模式：</p>
+<ul>
+<li>v直接进入visual</li>
+<li>V：进入visual line模式，即行选</li>
+<li>CTRL+v：进入visual block，即块选</li>
+</ul>
+<p>切换至command模式 <code>:</code></p>
+<blockquote>
+<p>按ESC回退至normal模式</p>
+</blockquote>
+<h2 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h2><p>在normal模式下，除了使用方向键来移动还可以使用h(←),l(→),j(↓),k(↑)</p>
+<blockquote>
+<p>为什么vim要多此一举，可能是最初的键盘没有方向键</p>
+</blockquote>
+<h3 id="单词单位"><a href="#单词单位" class="headerlink" title="单词单位"></a>单词单位</h3><ul>
+<li>w：移动到下一个单词开始处，W：移动到下一个大单词开始处（所谓大单词，即不忽略除空格外的分隔符）</li>
+<li>e：移动到下一个单词结尾处，E：移动到下一个大单词结尾处</li>
+<li>b：移动到上一个单词开始处，B：移动到上一个大单词开始处</li>
+</ul>
+<h3 id="行单位"><a href="#行单位" class="headerlink" title="行单位"></a>行单位</h3><ul>
+<li>0：移动到该行的第一个字符，$：移动到一行的最后一个字符。</li>
+<li>gg：移动到文件开始处，G：移动到文件结尾处</li>
+</ul>
+<h3 id="页单位"><a href="#页单位" class="headerlink" title="页单位"></a>页单位</h3><ul>
+<li>ctrl + f：向下移动一页</li>
+<li>ctrl + b：向上移动一页</li>
+<li>ctrl + d：向下移动半页</li>
+<li>ctrl + u：向上移动半页</li>
+<li>H：移动到屏幕开始行处，M：移动到屏幕中间行处，L：移动到屏幕结尾行处</li>
+</ul>
+<h3 id="搜索定位"><a href="#搜索定位" class="headerlink" title="搜索定位"></a>搜索定位</h3><ul>
+<li>f：字符搜索于本字符向行末搜索，F：字符搜索于本字符向行前搜索</li>
+<li>t：与f类似只是定位于目标的前一个字符，T：与F类似只是定位于目标的后一个字符</li>
+<li>/：向下查找字符串，？：向上查找字符串<ul>
+<li>n：重复执行上一个查找操作，N:重复反向执行上一个查找操作</li>
+<li>CTRL-O：跳回实际的位置，CTRL-I：跳转到之前位置。</li>
+</ul>
+</li>
+<li>%： 查找最近匹配的括号</li>
+<li>*：搜索当前光标处单词的其它实例</li>
+</ul>
+<h2 id="不退出normal的编辑操作"><a href="#不退出normal的编辑操作" class="headerlink" title="不退出normal的编辑操作"></a>不退出normal的编辑操作</h2><ul>
+<li><p>x：向后删除一个字符 (相当于 [del] 按键)</p>
+</li>
+<li><p>X：向前删除一个字符(相当于 [backspace] 亦即是退格键) </p>
+</li>
+<li><p>d：剪切，dd：剪切当前行</p>
+</li>
+<li><p>y：复制，yy：复制当前行</p>
+</li>
+<li><p>p：于下行开始粘贴，P：于上行开始粘贴</p>
+</li>
+<li><p>j：将光标所在行与下一行的数据结合成同一行</p>
+</li>
+<li><p>u：撤销，U：撤销行内命令</p>
+</li>
+<li><p>[Ctrl]+r：重做</p>
+</li>
+</ul>
+<h2 id="VIM语句"><a href="#VIM语句" class="headerlink" title="VIM语句"></a>VIM语句</h2><p><strong>动词(动作)：</strong></p>
+<p>如d，c等等</p>
+<p><strong>修饰语：</strong></p>
+<ul>
+<li>i：内部</li>
+<li>a：周围</li>
+<li>num：数字</li>
+<li>t，T，f，F，/，?</li>
+<li>等等</li>
+</ul>
+<p><strong>名词：</strong></p>
+<ul>
+<li>w: 单词</li>
+<li>s: 句子</li>
+<li>): 句子 (另一种操作方式)</li>
+<li>p: 段落</li>
+<li>}: 段落 (另一种操作方式)</li>
+<li>t: 标签 ( HTML/XML)</li>
+<li>b: 块 (编程语言)</li>
+<li>等等</li>
+</ul>
+<p>我们可以组合==动词+ 修饰语 + 名词==来执行一个命令</p>
+<h2 id="VIM命令"><a href="#VIM命令" class="headerlink" title="VIM命令"></a>VIM命令</h2><p><strong>执行外部命令：</strong><br>:! 然后紧接着输入一个外部命令可以执行该外部命令。</p>
+<p>CTRL-D：查看与输入的内容相匹配的命令</p>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><ul>
+<li><p>:w [filename]  ：另存档</p>
+</li>
+<li><p>:saveas ~/some/path/: 将文件保存到其他位置</p>
+</li>
+<li><p>:e 加载另一个文件   显示的文件是已激活的缓冲区，未显示的文件是隐藏的缓冲区</p>
+</li>
+<li><p>:ls 显示已激活的缓冲区</p>
+</li>
+<li><p>:ls!  显示所有缓冲区</p>
+</li>
+<li><p>:enew 创建一个无名的缓冲区，:w name 以name保存该文件, 然后就为这个缓冲区命了名</p>
+</li>
+</ul>
+<h3 id="替换操作"><a href="#替换操作" class="headerlink" title="替换操作"></a>替换操作</h3><p>替换命令</p>
+<p>:s/old/new/g 可以替换 old 为 new。g代表整行。</p>
+<p>输入   :#,#s/old/new/g   其中 #,# 代表的是替换操作的若干行中首尾两行的行号。<br>输入   :%s/old/new/g     则是替换整个文件中的每个匹配串。<br>输入   :%s/old/new/gc    会找到整个文件中的每个匹配串，并且对每个匹配串提示是否进行替换。</p>
+<h2 id="其它操作"><a href="#其它操作" class="headerlink" title="其它操作"></a>其它操作</h2><p>zz把当前行设置为屏幕的中间</p>
+<p>CTRL-G： 显示当前行的位置即文件状态</p>
+<p>ZZ：保存并推退出</p>
+<p>ZQ：不保存退出</p>
+<p>CTRL-w + hjkl 在窗口之间移动</p>
+<h2 id="vim设置"><a href="#vim设置" class="headerlink" title="vim设置"></a>vim设置</h2><p><strong>按键映射</strong></p>
+<table>
+<thead>
+<tr>
+<th>递归</th>
+<th>非递归</th>
+<th>模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>:map</code></td>
+<td><code>:noremap</code></td>
+<td>normal, visual, operator-pending</td>
+</tr>
+<tr>
+<td><code>:nmap</code></td>
+<td><code>:nnoremap</code></td>
+<td>normal</td>
+</tr>
+<tr>
+<td><code>:xmap</code></td>
+<td><code>:xnoremap</code></td>
+<td>visual</td>
+</tr>
+<tr>
+<td><code>:cmap</code></td>
+<td><code>:cnoremap</code></td>
+<td>command-line</td>
+</tr>
+<tr>
+<td><code>:omap</code></td>
+<td><code>:onoremap</code></td>
+<td>operator-pending</td>
+</tr>
+<tr>
+<td><code>:imap</code></td>
+<td><code>:inoremap</code></td>
+<td>insert</td>
+</tr>
+</tbody></table>
+<p>所谓递归是指若a映射到b，但是b映射到c，就变成了a执行c命令</p>
+<p>经验法则：除递归映射是必须的，否则总是使用非递归映射。</p>
+<p>通过不给一个右值来检查你的映射。比如<code>:nmap</code> 显示所以普通模式下的映射，<code>:nmap &lt;leader&gt;</code> 显示所有以 <code>&lt;leader&gt;</code> 键开头的普通模式下的映射。</p>
+  
+        </div>
+    </div>
+</div>
+
+
+    
+<script src="../../../js/index.js"></script>
+
+  </body>
+</html>

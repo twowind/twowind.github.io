@@ -1,0 +1,67 @@
+let i = 0;
+
+let parent_click = function (e) {
+  if (e.target != this) return;
+  i++;
+
+  e.stopPropagation();
+
+  let arr = e.target.parentNode.children;
+  let bro = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] != e.target) {
+      bro.push(arr[i]);
+    }
+  }
+
+  let children = e.target.children;
+
+  if (i % 2) {
+    bro.forEach((element) => {
+      element.classList.remove("show");
+      element.classList.add("hide");
+    });
+
+    for (let i = 0; i < children.length; i++) {
+      children[i].classList.remove("hide");
+      children[i].classList.add("show");
+    }
+  } else {
+    bro.forEach((element) => {
+      element.classList.remove("hide");
+      element.classList.add("show");
+    });
+
+    for (let i = 0; i < children.length; i++) {
+      children[i].classList.remove("show");
+      children[i].classList.add("hide");
+    }
+  }
+};
+
+let j = 0;
+let child_click = function (e) {
+  j++;
+
+  let children = e.target.querySelectorAll(".category_post");
+
+  if (j % 2) {
+    children.forEach((element) => {
+      element.classList.remove("hide");
+      element.classList.add("show");
+    });
+  } else {
+    children.forEach((element) => {
+      element.classList.remove("show");
+      element.classList.add("hide");
+    });
+  }
+};
+
+document.querySelectorAll(".category_1").forEach((element) => {
+  element.onclick = parent_click;
+});
+
+document.querySelectorAll(".category_2").forEach((element) => {
+  element.onclick = child_click;
+});

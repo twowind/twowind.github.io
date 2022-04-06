@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title></title>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.jpg " type="image/x-icon" />
+
+  
+<link rel="stylesheet" href="../../../css/index.css">
+
+</head>
+
+  <body>
+    <div class="nav-layout">
+    <div class="nav-content">
+        <div class="nav-header">
+    <span>目录</span>
+    <div></div>
+</div> 
+        <ul class="nav-categories">
+
+ 
+    <li class="nav-item">
+        <a href="http://localhost:4000/categories/博客 ">博客 </a>
+    </li>
+ 
+
+ 
+    <li class="nav-item">
+        <a href="http://localhost:4000/categories/笔记 ">笔记 </a>
+    </li>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+</ul>
+    </div>
+</div> 
+
+    <div class="header">
+    <div class="avatar">
+    <img src="/img/avatar.jpg " alt="twowind" />
+</div> 
+    <div class="logo">
+        twowind
+    </div>
+    <div class="menu">
+  <input type="checkbox" id="burger-toggle" />
+  <label for="burger-toggle" class="burger-menu">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </label>
+  <div class="switch_background"></div>
+</div>
+ 
+</div>
+
+
+
+    <div class="post">
+    <div>
+
+    </div>
+    <div class="post-content">
+        <div class="markdown-body">
+        <h4 id="1-程序结构"><a href="#1-程序结构" class="headerlink" title="1. 程序结构"></a>1. 程序结构</h4><ul>
+<li>预处理器指令：#include</li>
+<li>函数</li>
+<li>变量</li>
+<li>语句 &amp; 表达式</li>
+<li>注释：<ul>
+<li>单行注释：//</li>
+<li>多行注释：/*   */</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2. 数据类型"></a>2. 数据类型</h4><ul>
+<li>基本类型：<ul>
+<li>整数类型<ul>
+<li> 默认为10进制 ，10 ，20。</li>
+<li> 以0开头为8进制，045，021。</li>
+<li> 以0b开头为2进制，0b11101101。</li>
+<li> 以0x开头为16进制，0x21458adf。</li>
+</ul>
+</li>
+<li>浮点类型<ul>
+<li>单精度常量：2.3f 。</li>
+<li>双精度常量：2.3，默认为双精度。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>枚举类型</li>
+<li>void类型<ul>
+<li>函数返回空：void exit (int status);</li>
+<li>函数参数空： int rand(void);</li>
+<li>指针指向空：void *malloc( size_t size ); </li>
+</ul>
+</li>
+<li>派生类型<ul>
+<li>指针类型</li>
+<li>数组类型</li>
+<li>结构类型</li>
+<li>共用体类型</li>
+<li>函数类型</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>sizeof()：可以获得类型大小</p>
+<p>size_t，近似于无符号整型，但容量范围一般大于 int 和 unsigned</p>
+<p>sizeof的返回值是size_t</p>
+</blockquote>
+<h4 id="3-变量"><a href="#3-变量" class="headerlink" title="3. 变量"></a>3. 变量</h4><pre><code class="hljs c"><span class="hljs-keyword">extern</span> <span class="hljs-type">int</span> i; <span class="hljs-comment">//声明，不是定义</span>
+<span class="hljs-type">int</span> i; <span class="hljs-comment">//声明，也是定义</span></code></pre>
+
+<p><strong>定义：为变量分配存储空间，为变量指定初始值</strong></p>
+<p><strong>声明：用于向程序表明变量的类型和名字</strong></p>
+<blockquote>
+<p>声明可以多次，定义只能一次</p>
+<p>如果声明有初始化式，那么它可被当作是定义，即使声明标记为extern。（必须在函数外部，内部会错误）</p>
+</blockquote>
+<p>对于函数：声明不加{}，定义加</p>
+<p><strong>extern关键字，此变量/函数是在别处定义的，要在此处引用，外面没有，则此处声明为全局变量，可以在该文件与外部文件全局使用</strong></p>
+<h4 id="4-常量（字面量）"><a href="#4-常量（字面量）" class="headerlink" title="4. 常量（字面量）"></a>4. 常量（字面量）</h4><h5 id="4-1-整数常量"><a href="#4-1-整数常量" class="headerlink" title="4.1. 整数常量"></a>4.1. 整数常量</h5><p>可以加一个后缀，U是无符号整数，L表示长整数，大小写随意。不仅仅可以在常量中使用</p>
+<h5 id="4-2-浮点常量"><a href="#4-2-浮点常量" class="headerlink" title="4.2. 浮点常量"></a>4.2. 浮点常量</h5><p>只能使用，小数形式或者带E的指数形式</p>
+<h5 id="4-3-字符常量"><a href="#4-3-字符常量" class="headerlink" title="4.3. 字符常量"></a>4.3. 字符常量</h5><p>单引号字符对应ASCII 表中的序列值</p>
+<p>字符串会被存储到一个数组中，这个字符串代表指向这个数组起始字符的指针</p>
+<p>转义序列码：</p>
+<table>
+<thead>
+<tr>
+<th align="left">转义序列</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">\\</td>
+<td align="left">\ 字符</td>
+</tr>
+<tr>
+<td align="left">\‘</td>
+<td align="left">‘ 字符</td>
+</tr>
+<tr>
+<td align="left">\“</td>
+<td align="left">“ 字符</td>
+</tr>
+<tr>
+<td align="left">\?</td>
+<td align="left">? 字符</td>
+</tr>
+<tr>
+<td align="left">\a</td>
+<td align="left">警报铃声</td>
+</tr>
+<tr>
+<td align="left">\b</td>
+<td align="left">退格键</td>
+</tr>
+<tr>
+<td align="left">\f</td>
+<td align="left">换页符</td>
+</tr>
+<tr>
+<td align="left">\n</td>
+<td align="left">换行符</td>
+</tr>
+<tr>
+<td align="left">\r</td>
+<td align="left">回车</td>
+</tr>
+<tr>
+<td align="left">\t</td>
+<td align="left">水平制表符</td>
+</tr>
+<tr>
+<td align="left">\v</td>
+<td align="left">垂直制表符</td>
+</tr>
+<tr>
+<td align="left">\ooo</td>
+<td align="left">一到三位的八进制数</td>
+</tr>
+<tr>
+<td align="left">\xhh . . .</td>
+<td align="left">一个或多个数字的十六进制数</td>
+</tr>
+</tbody></table>
+<h5 id="4-4-定义方式"><a href="#4-4-定义方式" class="headerlink" title="4.4. 定义方式"></a>4.4. 定义方式</h5><ul>
+<li>使用 <strong>#define</strong> 预处理器。            #define identifier value<ul>
+<li>定义的是不带类型的常数，只进行简单的字符替换。在预编译的时候起作用，不存在类型检查。</li>
+</ul>
+</li>
+<li>使用 <strong>const</strong> 关键字。                    const type variable = value;      // 必须定义时赋值<ul>
+<li>本质不是去定义一个常量，而是去改变一个变量的存储类，把该变量所占的内存变为只读！</li>
+</ul>
+</li>
+</ul>
+<h6 id="两者区别："><a href="#两者区别：" class="headerlink" title="两者区别："></a>两者区别：</h6><ul>
+<li>编译器处理方式不同：<ul>
+<li>#define 宏是在预处理阶段展开。</li>
+<li> const 常量是编译运行阶段使用。</li>
+</ul>
+</li>
+<li>类型和安全检查不同<ul>
+<li> #define 宏没有类型，不做任何类型检查，仅仅是展开。</li>
+<li> const 常量有具体的类型，在编译阶段会执行类型检查。</li>
+</ul>
+</li>
+<li>存储方式不同<ul>
+<li>#define宏仅仅是展开，有多少地方使用，就展开多少次，不会分配内存。（宏定义不分配内存，变量定义分配内存。）编译期间会进行替换从而为变量分配内存</li>
+<li>const常量会在内存中分配(可以是堆中也可以是栈中)。不会重复分配内存，所以效率很高</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-存储类"><a href="#5-存储类" class="headerlink" title="5. 存储类"></a>5. 存储类</h4><ul>
+<li>auto：所有局部变量默认的存储类。只能用在函数内，即 auto 只能修饰局部变量。</li>
+<li>register：用于定义存储在寄存器中而不是 RAM 中的局部变量，但并不意味着变量将被存储在寄存器中，它意味着变量可能存储在寄存器中，这取决于硬件和实现的限制。并且不能对它应用一元的 ‘&amp;’ 运算符（因为它没有内存位置）。</li>
+<li>static<ul>
+<li>修饰全局变量，默认</li>
+<li>修饰局部变量，函数内部，不同调用，会记住每次调用结果，不会重置</li>
+</ul>
+</li>
+<li>extern</li>
+</ul>
+<h4 id="6-运算符"><a href="#6-运算符" class="headerlink" title="6. 运算符"></a>6. 运算符</h4><h5 id="6-1-算数运算符"><a href="#6-1-算数运算符" class="headerlink" title="6.1. 算数运算符"></a>6.1. 算数运算符</h5><h5 id="6-2-关系运算符"><a href="#6-2-关系运算符" class="headerlink" title="6.2. 关系运算符"></a>6.2. 关系运算符</h5><h5 id="6-3-逻辑运算符"><a href="#6-3-逻辑运算符" class="headerlink" title="6.3. 逻辑运算符"></a>6.3. 逻辑运算符</h5><h5 id="6-4-位运算符"><a href="#6-4-位运算符" class="headerlink" title="6.4. 位运算符"></a>6.4. 位运算符</h5><table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">描述</th>
+<th align="left">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">&amp;</td>
+<td align="left">按位与操作，按二进制位进行”与”运算。运算规则：</td>
+<td align="left">(A &amp; B) 将得到 12，即为 0000 1100</td>
+</tr>
+<tr>
+<td align="left">|</td>
+<td align="left">按位或运算符，按二进制位进行”或”运算。运算规则：</td>
+<td align="left">(A | B) 将得到 61，即为 0011 1101</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left">异或运算符，按二进制位进行”异或”运算。运算规则：``</td>
+<td align="left">(A ^ B) 将得到 49，即为 0011 0001</td>
+</tr>
+<tr>
+<td align="left">~</td>
+<td align="left">取反运算符，按二进制位进行”取反”运算。运算规则：</td>
+<td align="left">(~A ) 将得到 -61，即为 1100 0011，一个有符号二进制数的补码形式。</td>
+</tr>
+<tr>
+<td align="left">&lt;&lt;</td>
+<td align="left">二进制左移运算符。将一个运算对象的各二进制位全部左移若干位（左边的二进制位丢弃，右边补0）。</td>
+<td align="left">A &lt;&lt; 2 将得到 240，即为 1111 0000</td>
+</tr>
+<tr>
+<td align="left">&gt;&gt;</td>
+<td align="left">二进制右移运算符。将一个数的各二进制位全部右移若干位，正数左补0，负数左补1，右边丢弃。</td>
+<td align="left">A &gt;&gt; 2 将得到 15，即为 0000 1111</td>
+</tr>
+</tbody></table>
+<h5 id="6-5-赋值运算符"><a href="#6-5-赋值运算符" class="headerlink" title="6.5. 赋值运算符"></a>6.5. 赋值运算符</h5><h5 id="6-6-杂项运算符"><a href="#6-6-杂项运算符" class="headerlink" title="6.6. 杂项运算符"></a>6.6. 杂项运算符</h5><table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">描述</th>
+<th align="left">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">sizeof()</td>
+<td align="left">返回变量的大小。</td>
+<td align="left">sizeof(a) 将返回 4，其中 a 是整数。</td>
+</tr>
+<tr>
+<td align="left">&amp;</td>
+<td align="left">返回变量的地址。</td>
+<td align="left">&a; 将给出变量的实际地址。</td>
+</tr>
+<tr>
+<td align="left">*</td>
+<td align="left">指向一个变量。</td>
+<td align="left">*a; 将指向一个变量。</td>
+</tr>
+<tr>
+<td align="left">? :</td>
+<td align="left">条件表达式</td>
+<td align="left">如果条件为真 ? 则值为 X : 否则值为 Y</td>
+</tr>
+</tbody></table>
+<h4 id="7-判断"><a href="#7-判断" class="headerlink" title="7. 判断"></a>7. 判断</h4><h4 id="8-循环"><a href="#8-循环" class="headerlink" title="8. 循环"></a>8. 循环</h4><h4 id="9-函数"><a href="#9-函数" class="headerlink" title="9. 函数"></a>9. 函数</h4><blockquote>
+<p>9.1. 函数定义：包括方法体<br>9.2. 函数声明：没有方法体分号结尾</p>
+</blockquote>
+<ul>
+<li><p>内部函数：static，只能在本文件中使用</p>
+</li>
+<li><p>外部函数：extern，可以被外部函数调用（默认）,在被外部文件调用时也需要加extern声明</p>
+</li>
+<li><p>内联函数：inline，内联函数从源代码层看，有函数的结构，而在编译后，却不具备函数的性质内联扩展是用来消除函数调用时的时间开销。它通常用于频繁执行的函数，对于小内存空间的函数非常受益。</p>
+<ul>
+<li><p>递归函数不能定义为内联函数</p>
+</li>
+<li><p>内联函数一般适合于不存在while和switch等复杂的结构且只有1~5条语句的小函数上，否则编译系统将该函数视为普通函数。</p>
+</li>
+<li><p>内联函数只能先定义后使用，否则编译系统也会把它认为是普通函数。</p>
+</li>
+<li><p>对内联函数不能进行异常的接口声明。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="关于main函数"><a href="#关于main函数" class="headerlink" title="关于main函数"></a>关于main函数</h5><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">( <span class="hljs-type">int</span> argc, <span class="hljs-type">char</span> *argv[] )</span></code></pre>
+
+<p>如果 main 函数要带参数，就是这两个类型的参数；否则main函数就没有参数。</p>
+<p>C程序在编译和链接后，都生成一个exe文件，执行该exe文件时，可以直接执行；也可以在命令行下带参数执行，命令行执行的形式为：可执行文件名称 参数1 参数2 … … 参数n。</p>
+<ul>
+<li> (1) 可执行文件名称和所有参数的个数之和传递给 argc；</li>
+<li> (2) 可执行文件名称（包括路径名称）作为一个字符串，首地址被赋给 argv[0]，参数1也作为一个字符串，首地址被赋给 argv[1]，… …依次类推。</li>
+</ul>
+<blockquote>
+<p>函数声明和函数原型的参数名可以不一样，编译器他想知道的是函数参数的类型，与函数参数的名字没有关系。同理，定义时相同函数名，不同参数列表也是合法的，甚至参数列表没有参数名也可以（声明时）</p>
+</blockquote>
+<h5 id="9-1-main-函数前面为什么要加上数据类型，比如：-int-void"><a href="#9-1-main-函数前面为什么要加上数据类型，比如：-int-void" class="headerlink" title="9.1.  main 函数前面为什么要加上数据类型，比如： int void ?"></a>9.1.  main 函数前面为什么要加上数据类型，比如： <em>int void</em> ?</h5><p>main 函数的返回值是返回给主调进程，使主调进程得知被调用程序的运行结果。标准规范中规定 main 函数的返回值为 int，一般约定返回 0 值时代表程序运行无错误，其它值均为错误号，但该约定并非强制。在一些严格的编译器中必须使用int作为返回类型</p>
+<h5 id="9-2-C-语言-int-main-和-int-main-void-的区别？"><a href="#9-2-C-语言-int-main-和-int-main-void-的区别？" class="headerlink" title="9.2. C 语言 int main() 和 int main(void) 的区别？"></a>9.2. C 语言 int main() 和 int main(void) 的区别？</h5><ul>
+<li>int main(void) 指的是此函数的参数为空，不能传入参数，如果你传入参数，就会出错。</li>
+<li>int main() 表示可以传入参数。</li>
+</ul>
+<h5 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h5><p><code> 程序是从上向下执行，所以函数要先声明，后调用。</code></p>
+<h4 id="10-作用域规则"><a href="#10-作用域规则" class="headerlink" title="10. 作用域规则"></a>10. 作用域规则</h4><ul>
+<li>局部变量</li>
+<li>全局变量</li>
+</ul>
+<p><strong>全局变量与局部变量在内存中的区别</strong>：</p>
+<ul>
+<li>全局变量保存在内存的全局存储区中，占用静态的存储单元；</li>
+<li>局部变量保存在栈中，只有在所在函数被调用时才动态地为变量分配存储单元。</li>
+</ul>
+<blockquote>
+<p>初始化的区别：当局部变量被定义时，系统不会对其初始化，您必须自行对其初始化。定义全局变量时，系统会自动对其初始化。char的初始值’\0’</p>
+</blockquote>
+<h5 id="形参与实参"><a href="#形参与实参" class="headerlink" title="形参与实参"></a>形参与实参</h5><ul>
+<li>在定义函数中制定的形参，在没有出现函数调用时不占用内存中的存储单元。在函数调用时才分配内存</li>
+<li>将实参的值传递给形参</li>
+<li>在执行函数时，由于形参已经有值。可以用形参进行运算。</li>
+<li>通过return语句将函数值返回，若无返回值，则无return</li>
+<li>调用结束后，形参被释放掉，实参保留原值（单向传值）</li>
+</ul>
+<h4 id="11-数组"><a href="#11-数组" class="headerlink" title="11. 数组"></a>11. 数组</h4><p><code>数组名是一个指向数组中第一个元素的常量指针。</code></p>
+<h5 id="11-1-数组声明"><a href="#11-1-数组声明" class="headerlink" title="11.1. 数组声明"></a>11.1. 数组声明</h5><pre><code class="hljs c">type arrayName [ arraySize ];</code></pre>
+
+<h5 id="11-2-初始化数组"><a href="#11-2-初始化数组" class="headerlink" title="11.2. 初始化数组"></a>11.2. 初始化数组</h5><pre><code class="hljs c"><span class="hljs-type">double</span> balance[] = &#123;<span class="hljs-number">1000.0</span>, <span class="hljs-number">2.0</span>, <span class="hljs-number">3.4</span>, <span class="hljs-number">7.0</span>, <span class="hljs-number">50.0</span>&#125;;</code></pre>
+
+<h5 id="11-3-多维数组"><a href="#11-3-多维数组" class="headerlink" title="11.3. 多维数组"></a>11.3. 多维数组</h5><h5 id="11-4-传递数组到函数"><a href="#11-4-传递数组到函数" class="headerlink" title="11.4. 传递数组到函数"></a>11.4. 传递数组到函数</h5><ul>
+<li>形参是一个指针</li>
+<li>形参是一个已定义大小的数组</li>
+<li>形参是一个未定义大小的数组</li>
+</ul>
+<h5 id="11-5-从函数返回数组"><a href="#11-5-从函数返回数组" class="headerlink" title="11.5. 从函数返回数组"></a>11.5. 从函数返回数组</h5><ul>
+<li><p>使用指针：</p>
+<pre><code class="hljs c"><span class="hljs-type">int</span>* <span class="hljs-title function_">myFunction</span><span class="hljs-params">()</span>
+&#123;
+    <span class="hljs-type">int</span> r[];
+    <span class="hljs-keyword">return</span> r;
+&#125;</code></pre>
+
+<blockquote>
+<p>注意：C 不支持在函数外返回局部变量的地址，除非定义局部变量为 <strong>static</strong> 变量。</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="11-6-指向数组的指针"><a href="#11-6-指向数组的指针" class="headerlink" title="11.6. 指向数组的指针"></a>11.6. 指向数组的指针</h5><pre><code class="hljs c"><span class="hljs-type">double</span> *p;
+<span class="hljs-type">double</span> balance[<span class="hljs-number">10</span>];
+p = balance;
+
+*(balance+<span class="hljs-number">4</span>)    <span class="hljs-comment">//访问balance[4]</span>
+<span class="hljs-comment">// p[4] == balance[4]</span></code></pre>
+
+<h4 id="12-枚举"><a href="#12-枚举" class="headerlink" title="12. 枚举"></a>12. 枚举</h4><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">enum</span>　枚举名　&#123;</span>枚举元素<span class="hljs-number">1</span>,枚举元素<span class="hljs-number">2</span>,……&#125;;</code></pre>
+
+<p>注意：第一个枚举成员的默认值为0，<strong>后续在前面加1，枚举的内容都是常量不能被赋值</strong>。</p>
+<h5 id="12-1-枚举变量"><a href="#12-1-枚举变量" class="headerlink" title="12.1. 枚举变量"></a>12.1. 枚举变量</h5><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">week</span>&#123;</span> Mon = <span class="hljs-number">1</span>, Tues, Wed, Thurs, Fri, Sat, Sun &#125;;
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">week</span> <span class="hljs-title">a</span> =</span> Mon, b = Wed, c = Sat;</code></pre>
+
+<pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">week</span>&#123;</span> Mon = <span class="hljs-number">1</span>, Tues, Wed, Thurs, Fri, Sat, Sun &#125; a = Mon, b = Wed, c = Sat;</code></pre>
+
+<blockquote>
+<p>枚举变量值只能是枚举值，不能是整型或其他类型。但是可以使用强制转换，</p>
+<p>day = (enum week)1;</p>
+</blockquote>
+<h5 id="12-2-枚举与宏"><a href="#12-2-枚举与宏" class="headerlink" title="12.2. 枚举与宏"></a>12.2. 枚举与宏</h5><p><code>宏在预处理阶段将名字替换成对应的值，枚举在编译阶段将名字替换成对应的值。我们可以将枚举理解为编译阶段的宏。</code></p>
+<h5 id="12-3-枚举的遍历"><a href="#12-3-枚举的遍历" class="headerlink" title="12.3. 枚举的遍历"></a>12.3. 枚举的遍历</h5><p>必须使用强制转换，并且枚举值连续</p>
+<pre><code class="hljs c"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">enum</span> week day = Mon; day &lt;= Sun; day = (<span class="hljs-keyword">enum</span> week)(day + <span class="hljs-number">1</span>)) 
+&#123;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, day);
+&#125;</code></pre>
+
+<h4 id="13-指针"><a href="#13-指针" class="headerlink" title="13. 指针"></a>13. 指针</h4><h5 id="13-1-指针声明"><a href="#13-1-指针声明" class="headerlink" title="13.1. 指针声明"></a>13.1. 指针声明</h5><pre><code class="hljs c">type *var-name;</code></pre>
+
+<p>未被初始化的指针被称为<strong>野指针</strong>，如果实在不知道初始成多少，就指向为空。</p>
+<p>指针参数的传递本质仍然是值传递，只不过值是地址值</p>
+<h5 id="13-2-指针地址访问：-amp-取得该变量的地址"><a href="#13-2-指针地址访问：-amp-取得该变量的地址" class="headerlink" title="13.2. 指针地址访问：&amp;取得该变量的地址"></a>13.2. 指针地址访问：&amp;取得该变量的地址</h5><h5 id="13-3-指针值访问：-访问地址所指向的值"><a href="#13-3-指针值访问：-访问地址所指向的值" class="headerlink" title="13.3. 指针值访问：*访问地址所指向的值"></a>13.3. 指针值访问：*访问地址所指向的值</h5><h5 id="13-4-指针的算术运算"><a href="#13-4-指针的算术运算" class="headerlink" title="13.4. 指针的算术运算"></a>13.4. 指针的算术运算</h5><ul>
+<li><p>指针的每一次递增，它其实会指向下一个元素的存储单元。</p>
+</li>
+<li><p>指针的每一次递减，它都会指向前一个元素的存储单元。</p>
+<blockquote>
+<p>即指针地址增加其增加长度为指针类型单元长度</p>
+<p>指针是可以进行比较的</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="13-5-指针数组"><a href="#13-5-指针数组" class="headerlink" title="13.5. 指针数组"></a>13.5. 指针数组</h5><ul>
+<li><p>指针数组，指针类型的数组，即数组元素是指针</p>
+</li>
+<li><p>数组指针，指针指向的是一个数组</p>
+<pre><code class="hljs c"><span class="hljs-type">int</span>  a[<span class="hljs-number">5</span>]=&#123; <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span> &#125;;    <span class="hljs-comment">//定义一个一维数组 a</span>
+<span class="hljs-type">int</span>  (*prt)[<span class="hljs-number">5</span>];      <span class="hljs-comment">// 步长为 5 的数组指针，即 prt 指向的数组里有 5 个元素 </span>
+prt=&amp;a;    <span class="hljs-comment">// 把数组 a 的地址付给 prt，则 prt 为数组 a 的地址，*prt 表示数组 a 本身</span>
+prt[ <span class="hljs-number">0</span> ];    <span class="hljs-comment">//表示数组首元素的地址</span>
+*prt[ <span class="hljs-number">0</span> ]；  <span class="hljs-comment">//表示数组的首元素的值，即为数组 a 的 1</span>
+**prt;         <span class="hljs-comment">//表示数组的首元素的值，即为数组 a 的 1</span>
+*prt[ <span class="hljs-number">1</span> ] ;   <span class="hljs-comment">//表示指向数组的下一行元素的首元素的值，但是a是一维数组，只有一行，所以指向的地址中的值不确定</span></code></pre>
+
+<blockquote>
+<p><strong>int *a[3]<strong>：为什么这里是指针数组，</strong>[]</strong> 的优先级高于 ***** ，所以这是一个数组，而 ***** 修饰数组，所以是指针数组，数组的元素是整型的指针。</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="13-6-函数指针数组"><a href="#13-6-函数指针数组" class="headerlink" title="13.6. 函数指针数组"></a>13.6. 函数指针数组</h5><p>数组内容为指针，指针指向的是函数</p>
+<h5 id="13-7-指向指针的指针"><a href="#13-7-指向指针的指针" class="headerlink" title="13.7. 指向指针的指针"></a>13.7. 指向指针的指针</h5><p>指向指针的指针是一种多级间接寻址的形式，或者说是一个指针链。</p>
+<h5 id="13-8-传递指针给函数"><a href="#13-8-传递指针给函数" class="headerlink" title="13.8. 传递指针给函数"></a>13.8. 传递指针给函数</h5><h5 id="13-9-从函数返回指针"><a href="#13-9-从函数返回指针" class="headerlink" title="13.9. 从函数返回指针"></a>13.9. 从函数返回指针</h5><h4 id="14-函数指针与回调函数"><a href="#14-函数指针与回调函数" class="headerlink" title="14. 函数指针与回调函数"></a>14. 函数指针与回调函数</h4><h5 id="14-1-函数指针（指向函数的指针）"><a href="#14-1-函数指针（指向函数的指针）" class="headerlink" title="14.1. 函数指针（指向函数的指针）"></a>14.1. 函数指针（指向函数的指针）</h5><pre><code class="hljs c"><span class="hljs-type">double</span> <span class="hljs-title function_">func</span><span class="hljs-params">(<span class="hljs-type">int</span> a,<span class="hljs-type">char</span> c)</span>;
+<span class="hljs-type">double</span> (*p)(<span class="hljs-type">int</span> a,<span class="hljs-type">char</span> c);
+p=&amp;func;
+<span class="hljs-comment">//调用函数</span>
+<span class="hljs-type">double</span> s1=func(<span class="hljs-number">100</span>,<span class="hljs-string">&#x27;x&#x27;</span>);
+<span class="hljs-type">double</span> s2=(*p)(<span class="hljs-number">100</span>,<span class="hljs-string">&#x27;x&#x27;</span>);</code></pre>
+
+<h5 id="14-2-指针函数（返回值为指针的函数）"><a href="#14-2-指针函数（返回值为指针的函数）" class="headerlink" title="14.2. 指针函数（返回值为指针的函数）"></a>14.2. 指针函数（返回值为指针的函数）</h5><h5 id="14-3-回调函数（函数指针作为某个函数的参数）"><a href="#14-3-回调函数（函数指针作为某个函数的参数）" class="headerlink" title="14.3. 回调函数（函数指针作为某个函数的参数）"></a>14.3. 回调函数（函数指针作为某个函数的参数）</h5><p>其中一个参数值为函数指针，传入某个实例函数。有点类似于java的接口</p>
+<h4 id="15-字符串"><a href="#15-字符串" class="headerlink" title="15. 字符串"></a>15. 字符串</h4><p>字符串本质就是字符数组(以\0结尾)，所以字符串又可这样定义：</p>
+<pre><code class="hljs c"><span class="hljs-type">char</span> site[<span class="hljs-number">7</span>] = &#123;<span class="hljs-string">&#x27;R&#x27;</span>, <span class="hljs-string">&#x27;U&#x27;</span>, <span class="hljs-string">&#x27;N&#x27;</span>, <span class="hljs-string">&#x27;O&#x27;</span>, <span class="hljs-string">&#x27;O&#x27;</span>, <span class="hljs-string">&#x27;B&#x27;</span>, <span class="hljs-string">&#x27;\0&#x27;</span>&#125;;
+<span class="hljs-type">char</span> site[] = <span class="hljs-string">&quot;RUNOOB&quot;</span>;
+
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s&quot;</span>) <span class="hljs-comment">// 输出RUNNOOB</span></code></pre>
+
+<blockquote>
+<p>注意若没有\0结尾，会输出错误，不定长字符串数组会默认以\0结尾</p>
+</blockquote>
+<h5 id="15-1-字符串操作函数"><a href="#15-1-字符串操作函数" class="headerlink" title="15.1. 字符串操作函数"></a>15.1. 字符串操作函数</h5><table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>strcpy(s1, s2);</strong></td>
+<td><strong>复制字符串 s2 到字符串 s1。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>strcat(s1, s2);</strong></td>
+<td><strong>连接字符串 s2 到字符串 s1 的末尾。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>strlen(s1);</strong></td>
+<td><strong>返回字符串 s1 的长度。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>strcmp(s1, s2);</strong></td>
+<td><strong>如果 s1 和 s2 是相同的，则返回 0；如果 s1&lt;s2 则返回小于 0；如果 s1&gt;s2 则返回大于 0。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>strchr(s1, ch);</strong></td>
+<td><strong>返回一个指针，指向字符串 s1 中字符 ch 的第一次出现的位置。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>strstr(s1, s2);</strong></td>
+<td><strong>返回一个指针，指向字符串 s1 中字符串 s2 的第一次出现的位置。</strong></td>
+</tr>
+</tbody></table>
+<ul>
+<li>sizeof计算会包括\0</li>
+<li>sizelen计算不包括\0</li>
+</ul>
+<h4 id="16-结构体"><a href="#16-结构体" class="headerlink" title="16. 结构体"></a>16. 结构体</h4><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">tag</span> &#123;</span> 
+    member-<span class="hljs-built_in">list</span>
+    member-<span class="hljs-built_in">list</span> 
+    member-<span class="hljs-built_in">list</span>  
+    ...
+&#125; variable-<span class="hljs-built_in">list</span> ;</code></pre>
+
+<p>结构体相互包含，则需要对其中一个结构体进行不完整声明：struct B;    //对结构体B进行不完整声明</p>
+<h5 id="16-1-结构体变量初始化"><a href="#16-1-结构体变量初始化" class="headerlink" title="16.1. 结构体变量初始化"></a>16.1. 结构体变量初始化</h5><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Books</span></span>
+<span class="hljs-class">&#123;</span>
+   <span class="hljs-type">char</span>  title[<span class="hljs-number">50</span>];
+   <span class="hljs-type">char</span>  author[<span class="hljs-number">50</span>];
+   <span class="hljs-type">char</span>  subject[<span class="hljs-number">100</span>];
+   <span class="hljs-type">int</span>   book_id;
+&#125; book = &#123;<span class="hljs-string">&quot;C 语言&quot;</span>, <span class="hljs-string">&quot;RUNOOB&quot;</span>, <span class="hljs-string">&quot;编程语言&quot;</span>, <span class="hljs-number">123456</span>&#125;;</code></pre>
+
+<h5 id="16-2-访问结构体成员（使用-）"><a href="#16-2-访问结构体成员（使用-）" class="headerlink" title="16.2. 访问结构体成员（使用.）"></a>16.2. 访问结构体成员（使用.）</h5><h5 id="16-3-结构体作为函数参数"><a href="#16-3-结构体作为函数参数" class="headerlink" title="16.3. 结构体作为函数参数"></a>16.3. 结构体作为函数参数</h5><pre><code class="hljs c"><span class="hljs-type">void</span> <span class="hljs-title function_">printBook</span><span class="hljs-params">( <span class="hljs-keyword">struct</span> Books book )</span>;</code></pre>
+
+<h5 id="16-4-指向结构体的指针"><a href="#16-4-指向结构体的指针" class="headerlink" title="16.4. 指向结构体的指针"></a>16.4. 指向结构体的指针</h5><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Books</span> *<span class="hljs-title">struct_pointer</span>;</span></code></pre>
+
+<p>为了使用指向该结构的指针访问结构的成员，您必须使用 -&gt; 运算符</p>
+<pre><code class="hljs c">struct_pointer-&gt;title;</code></pre>
+
+<h5 id="16-5-位域"><a href="#16-5-位域" class="headerlink" title="16.5. 位域"></a>16.5. 位域</h5><p>所谓”位域”是把一个字节中的二进位划分为几个不同的区域，并说明每个区域的位数。每个域有一个域名，允许在程序中按域名进行操作</p>
+<pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> 位域结构名 </span>
+<span class="hljs-class">&#123;</span>
+	类型说明符 位域名: 位域长度;
+	类型说明符 位域名: 位域长度;
+&#125;;</code></pre>
+
+<ul>
+<li>一个位域存储在同一个字节中，如一个字节所剩空间不够存放另一位域时，则会从下一单元起存放该位域。也可以有意使某位域从下一单元开始。</li>
+<li>位域可以是无名位域(空域)，这时它只用来作填充或调整位置。无名的位域是不能使用的。</li>
+</ul>
+<h5 id="16-6-结构体数组"><a href="#16-6-结构体数组" class="headerlink" title="16.6. 结构体数组"></a>16.6. 结构体数组</h5><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">book</span> <span class="hljs-title">library</span>[<span class="hljs-title">MAVXBKS</span>];</span>    <span class="hljs-comment">//book类型的结构体数组</span></code></pre>
+
+<h5 id="16-7-结构体内存大小对齐原则"><a href="#16-7-结构体内存大小对齐原则" class="headerlink" title="16.7. 结构体内存大小对齐原则"></a>16.7. 结构体内存大小对齐原则</h5><ol>
+<li>结构体变量的首地址能够被其最宽基本类型成员的大小所整除。</li>
+<li>结构体每个成员相对于结构体首地址的偏移量(offset)都是成员大小的整数倍，如有需要编译器会在成员之间加上填充字节(internal adding)。即结构体成员的末地址减去结构体首地址(第一个结构体成员的首地址)得到的偏移量都要是对应成员大小的整数倍。</li>
+<li>结构体的总大小为结构体最宽基本类型成员大小的整数倍，如有需要编译器会在成员末尾加上填充字节。</li>
+</ol>
+<h4 id="17-共用体：允许您在相同的内存位置存储不同的数据类型"><a href="#17-共用体：允许您在相同的内存位置存储不同的数据类型" class="headerlink" title="17. 共用体：允许您在相同的内存位置存储不同的数据类型"></a>17. 共用体：允许您在相同的内存位置存储不同的数据类型</h4><h5 id="17-1-共用体定义"><a href="#17-1-共用体定义" class="headerlink" title="17.1. 共用体定义"></a>17.1. 共用体定义</h5><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">union</span> [<span class="hljs-title">union</span> <span class="hljs-title">tag</span>]</span>
+<span class="hljs-class">&#123;</span>
+   member definition;
+   member definition;
+   ...
+   member definition;
+&#125; [one or more <span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">variables</span>];</span>
+<span class="hljs-comment">//共用体大小应该能够容下最大变量</span></code></pre>
+
+<h5 id="17-2-访问共用体成员（-）"><a href="#17-2-访问共用体成员（-）" class="headerlink" title="17.2. 访问共用体成员（.）"></a>17.2. 访问共用体成员（.）</h5><blockquote>
+<p>共用体只能存下一个成员，不同存入依最后一次取出为准</p>
+</blockquote>
+<h5 id="17-3-共用体应用场景"><a href="#17-3-共用体应用场景" class="headerlink" title="17.3. 共用体应用场景"></a>17.3. 共用体应用场景</h5><p>通信中的数据包会用到共用体:因为不知道对方会发一个什么包过来，用共用体的话就很简单了，定义几种格式的包，收到包之后就可以直接根据包的格式取出数据。</p>
+<h4 id="18-typedef"><a href="#18-typedef" class="headerlink" title="18. typedef"></a>18. typedef</h4><p><code>可以使用它为类型取一个别名</code></p>
+<h5 id="18-1-typedef与-define的异同"><a href="#18-1-typedef与-define的异同" class="headerlink" title="18.1. typedef与#define的异同"></a>18.1. typedef与#define的异同</h5><ul>
+<li>typedef由编译器执行解释，仅限于为类型定义符号名称</li>
+<li>#define 语句是由预编译器进行处理的，为任意字符，与编译阶段，原样替换</li>
+</ul>
+<h5 id="18-2-typedef的四种用法"><a href="#18-2-typedef的四种用法" class="headerlink" title="18.2. typedef的四种用法"></a>18.2. typedef的四种用法</h5><ul>
+<li><p>为基本数据类型定义新的类型名</p>
+<pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> COUNT;</code></pre></li>
+<li><p>为自定义数据类型（结构体、共用体和枚举类型）定义简洁的类型名称</p>
+<pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">tagPoint</span></span>
+<span class="hljs-class">&#123;</span>
+    <span class="hljs-type">double</span> x;
+    <span class="hljs-type">double</span> y;
+    <span class="hljs-type">double</span> z;
+&#125; Point;</code></pre></li>
+<li><p>为数组定义简洁的类型名称</p>
+</li>
+<li><p>为指针定义简洁的名称</p>
+</li>
+</ul>
+<pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-type">char</span>* PCHAR;
+<span class="hljs-type">int</span> <span class="hljs-title function_">strcmp</span><span class="hljs-params">(<span class="hljs-type">const</span> PCHAR,<span class="hljs-type">const</span> PCHAR)</span>; <span class="hljs-comment">// char* const p</span>
+<span class="hljs-comment">//形成的是一个常量指针，指向常量的指针(指针可以修改，指向内容不可改)</span>
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-type">const</span> <span class="hljs-type">char</span>* PCHAR;
+<span class="hljs-type">int</span> <span class="hljs-title function_">strcmp</span><span class="hljs-params">(PCHAR， PCHAR)</span>; <span class="hljs-comment">// 这才是指针常量（指针不可改，但指向内容可改）</span></code></pre>
+
+<h4 id="19-输入和输出"><a href="#19-输入和输出" class="headerlink" title="19. 输入和输出"></a>19. 输入和输出</h4><table>
+<thead>
+<tr>
+<th align="left">标准文件</th>
+<th align="left">文件指针</th>
+<th align="left">设备</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">标准输入</td>
+<td align="left">stdin</td>
+<td align="left">键盘</td>
+</tr>
+<tr>
+<td align="left">标准输出</td>
+<td align="left">stdout</td>
+<td align="left">屏幕</td>
+</tr>
+<tr>
+<td align="left">标准错误</td>
+<td align="left">stderr</td>
+<td align="left">您的屏幕</td>
+</tr>
+</tbody></table>
+<h5 id="19-1-printf和scanf"><a href="#19-1-printf和scanf" class="headerlink" title="19.1. printf和scanf"></a>19.1. printf和scanf</h5><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Number = %d&quot;</span>, testInteger);
+<span class="hljs-comment">//格式化输出到屏幕，%d整型</span>
+
+<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%f&quot;</span>,&amp;f);<span class="hljs-comment">//返回输入长度【】	·</span>
+<span class="hljs-comment">//从键盘输入 %f 匹配浮点型数据</span>
+<span class="hljs-comment">//%s对应字符串</span>
+<span class="hljs-comment">//%c对应字符</span>
+
+指定数据宽度和小数位数，用 %m.nf
+输出的数据相左对齐，用 %-m.nf
+在 m.n 前加一个负号，其作用与 %m.nf 形式作用基本相同，但当数据长度不长过 m 时，数据向左靠，右端补空格。</code></pre>
+
+<h5 id="19-2-getchar和putchar"><a href="#19-2-getchar和putchar" class="headerlink" title="19.2. getchar和putchar"></a>19.2. getchar和putchar</h5><pre><code class="hljs c"><span class="hljs-type">int</span> c;
+c = getchar();<span class="hljs-comment">//从屏幕读取一个字符，就算输入多个也只读第一个，返回一个整数（对应ascll码）</span>
+<span class="hljs-built_in">putchar</span>(c);<span class="hljs-comment">//将整数（ascll码）转成字符</span></code></pre>
+
+<h5 id="19-3-gets和puts"><a href="#19-3-gets和puts" class="headerlink" title="19.3. gets和puts"></a>19.3. gets和puts</h5><pre><code class="hljs c"><span class="hljs-type">char</span> str[<span class="hljs-number">100</span>];
+gets(str);<span class="hljs-comment">//从键盘获取字符串输入到str缓冲区，换行符转换为null即\0，可能会越界</span>
+fget(str);<span class="hljs-comment">//不会越界，自动截断，最后一个字符会自动转为\0</span>
+<span class="hljs-built_in">puts</span>(str);<span class="hljs-comment">//从str缓冲区获取字符串，缓冲区不变</span></code></pre>
+
+<h4 id="20-文件读写"><a href="#20-文件读写" class="headerlink" title="20. 文件读写"></a>20. 文件读写</h4><h5 id="20-1-打开文件"><a href="#20-1-打开文件" class="headerlink" title="20.1. 打开文件"></a>20.1. 打开文件</h5><pre><code class="hljs c">FILE *<span class="hljs-title function_">fopen</span><span class="hljs-params">( <span class="hljs-type">const</span> <span class="hljs-type">char</span> * filename, <span class="hljs-type">const</span> <span class="hljs-type">char</span> * mode )</span>;</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">模式</th>
+<th align="left">描述(必须小写)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">r</td>
+<td align="left">打开一个已有的文本文件，允许读取文件。</td>
+</tr>
+<tr>
+<td align="left">w</td>
+<td align="left">打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会从文件的开头写入内容。如果文件存在，则该会被截断为零长度，重新写入。</td>
+</tr>
+<tr>
+<td align="left">a</td>
+<td align="left">打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会在已有的文件内容中追加内容。</td>
+</tr>
+<tr>
+<td align="left">r+</td>
+<td align="left">打开一个文本文件，允许读写文件。</td>
+</tr>
+<tr>
+<td align="left">w+</td>
+<td align="left">打开一个文本文件，允许读写文件。如果文件已存在，则文件会被截断为零长度，如果文件不存在，则会创建一个新文件。</td>
+</tr>
+<tr>
+<td align="left">a+</td>
+<td align="left">打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。读取会从文件的开头开始，写入则只能是追加模式。</td>
+</tr>
+</tbody></table>
+<h5 id="19-2-关闭文件"><a href="#19-2-关闭文件" class="headerlink" title="19.2. 关闭文件"></a>19.2. 关闭文件</h5><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">fclose</span><span class="hljs-params">( FILE *fp )</span>;<span class="hljs-comment">//返回0成功，返回EOF（studio.h中的常量）失败</span></code></pre>
+
+<h5 id="19-3-写入文件"><a href="#19-3-写入文件" class="headerlink" title="19.3. 写入文件"></a>19.3. 写入文件</h5><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">fputc</span><span class="hljs-params">( <span class="hljs-type">int</span> c, FILE *fp )</span>;<span class="hljs-comment">//写入字符</span>
+<span class="hljs-type">int</span> <span class="hljs-title function_">fputs</span><span class="hljs-params">( <span class="hljs-type">const</span> <span class="hljs-type">char</span> *s, FILE *fp )</span>;<span class="hljs-comment">//写入字符串</span>
+<span class="hljs-type">int</span> <span class="hljs-title function_">fprintf</span><span class="hljs-params">(FILE *fp,<span class="hljs-type">const</span> <span class="hljs-type">char</span> *format, ...)</span><span class="hljs-comment">//写入格式化的字符串</span></code></pre>
+
+<h5 id="19-4-读取文件"><a href="#19-4-读取文件" class="headerlink" title="19.4. 读取文件"></a>19.4. 读取文件</h5><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">fgetc</span><span class="hljs-params">( FILE * fp )</span>;<span class="hljs-comment">//读取单个字符</span>
+<span class="hljs-type">char</span> *<span class="hljs-title function_">fgets</span><span class="hljs-params">( <span class="hljs-type">char</span> *buf, <span class="hljs-type">int</span> n, FILE *fp )</span>;
+<span class="hljs-comment">//从 fp 所指向的输入流中读取 n - 1 个字符。它会把读取的字符串复制到缓冲区 buf，并在最后追加一个 null 字符来终止字符串。</span>
+
+<span class="hljs-built_in">fscanf</span>(fp, <span class="hljs-string">&quot;%s&quot;</span>, buff);<span class="hljs-comment">//读取文件到缓冲区，遇到空格换行符会停止</span></code></pre>
+
+<h5 id="19-5-二进制I-O函数"><a href="#19-5-二进制I-O函数" class="headerlink" title="19.5. 二进制I/O函数"></a>19.5. 二进制I/O函数</h5><pre><code class="hljs c"><span class="hljs-type">size_t</span> <span class="hljs-title function_">fread</span><span class="hljs-params">(<span class="hljs-type">void</span> *ptr, <span class="hljs-type">size_t</span> size_of_elements, </span>
+<span class="hljs-params">             <span class="hljs-type">size_t</span> number_of_elements, FILE *a_file)</span>;
+              
+<span class="hljs-type">size_t</span> <span class="hljs-title function_">fwrite</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">void</span> *ptr, <span class="hljs-type">size_t</span> size_of_elements, </span>
+<span class="hljs-params">             <span class="hljs-type">size_t</span> number_of_elements, FILE *a_file)</span>;
+
+<span class="hljs-comment">//用于存储块的读写 - 通常是数组或结构体。</span></code></pre>
+
+<h5 id="19-6-文件指针移动"><a href="#19-6-文件指针移动" class="headerlink" title="19.6. 文件指针移动"></a>19.6. 文件指针移动</h5><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">fseek</span><span class="hljs-params">(FILE *stream, <span class="hljs-type">long</span> offset, <span class="hljs-type">int</span> whence)</span>;
+<span class="hljs-comment">//fseek 设置当前读写点到 offset 处, whence 可以是 SEEK_SET,SEEK_CUR,SEEK_END 这些值决定是从文件头、当前点和文件尾计算偏移量 offset。</span></code></pre>
+
+<h4 id="20-预处理器"><a href="#20-预处理器" class="headerlink" title="20. 预处理器"></a>20. 预处理器</h4><p>C 预处理器不是编译器的组成部分，但是它是编译过程中一个单独的步骤。简言之，C 预处理器只不过是一个文本替换工具而已，它们会指示编译器在实际编译之前完成所需的预处理。我们将把 C 预处理器（C Preprocessor）简写为 CPP。</p>
+<table>
+<thead>
+<tr>
+<th align="left">指令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">#define</td>
+<td align="left">定义宏</td>
+</tr>
+<tr>
+<td align="left">#include</td>
+<td align="left">包含一个源代码文件</td>
+</tr>
+<tr>
+<td align="left">#undef</td>
+<td align="left">取消已定义的宏</td>
+</tr>
+<tr>
+<td align="left">#ifdef</td>
+<td align="left">如果宏已经定义，则返回真</td>
+</tr>
+<tr>
+<td align="left">#ifndef</td>
+<td align="left">如果宏没有定义，则返回真</td>
+</tr>
+<tr>
+<td align="left">#if</td>
+<td align="left">如果给定条件为真，则编译下面代码</td>
+</tr>
+<tr>
+<td align="left">#else</td>
+<td align="left">#if 的替代方案</td>
+</tr>
+<tr>
+<td align="left">#elif</td>
+<td align="left">如果前面的 #if 给定条件不为真，当前条件为真，则编译下面代码</td>
+</tr>
+<tr>
+<td align="left">#endif</td>
+<td align="left">结束一个 #if……#else 条件编译块</td>
+</tr>
+<tr>
+<td align="left">#error</td>
+<td align="left">当遇到标准错误时，输出错误消息</td>
+</tr>
+<tr>
+<td align="left">#pragma</td>
+<td align="left">使用标准化方法，向编译器发布特殊的命令到编译器中</td>
+</tr>
+</tbody></table>
+<h5 id="20-1-include"><a href="#20-1-include" class="headerlink" title="20.1. #include"></a>20.1. #include</h5><ul>
+<li>&lt;&gt;从系统库寻找文件，即编译器的类库路径里的头文件</li>
+<li>”“从本地目录中获取文件，即程序的相对路径中的头文件，没找到就到类库路径的目录下</li>
+</ul>
+<h5 id="20-2-预定义宏"><a href="#20-2-预定义宏" class="headerlink" title="20.2. 预定义宏"></a>20.2. 预定义宏</h5><table>
+<thead>
+<tr>
+<th align="left">宏</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>DATE</strong></td>
+<td align="left">当前日期，一个以 “MMM DD YYYY” 格式表示的字符常量。</td>
+</tr>
+<tr>
+<td align="left"><strong>TIME</strong></td>
+<td align="left">当前时间，一个以 “HH:MM:SS” 格式表示的字符常量。</td>
+</tr>
+<tr>
+<td align="left"><strong>FILE</strong></td>
+<td align="left">这会包含当前文件名，一个字符串常量。</td>
+</tr>
+<tr>
+<td align="left"><strong>LINE</strong></td>
+<td align="left">这会包含当前行号，一个十进制常量。</td>
+</tr>
+<tr>
+<td align="left"><strong>STDC</strong></td>
+<td align="left">当编译器以 ANSI 标准编译时，则定义为 1。</td>
+</tr>
+</tbody></table>
+<h5 id="20-3-预处理器运算符"><a href="#20-3-预处理器运算符" class="headerlink" title="20.3. 预处理器运算符"></a>20.3. 预处理器运算符</h5><ul>
+<li><p> 宏延续运算符（\）</p>
+</li>
+<li><p> 字符串常量化运算符（#）</p>
+</li>
+<li><p>  标记粘贴运算符（##）</p>
+</li>
+</ul>
+<blockquote>
+<p>defined() 运算符，确定一个标识符是否已经定义过了，配合#if使用</p>
+</blockquote>
+<h5 id="20-4-参数化宏"><a href="#20-4-参数化宏" class="headerlink" title="20.4. 参数化宏"></a>20.4. 参数化宏</h5><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> square(x) ((x) * (x))</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> square_1(x) (x * x) <span class="hljs-comment">//必须将参数用()括起来，否则会失败</span></span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> SWAP1(x,y) &#123;x=x+y;y=x-y;x=x-y;&#125;</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> SWAP2(x,y) &#123;x=x^y;y=x^y;x=x^y;&#125; <span class="hljs-comment">//不建议使用</span></span></code></pre>
+
+<h4 id="21-头文件"><a href="#21-头文件" class="headerlink" title="21. 头文件"></a>21. 头文件</h4><h5 id="21-1-只引用一次头文件"><a href="#21-1-只引用一次头文件" class="headerlink" title="21.1. 只引用一次头文件"></a>21.1. 只引用一次头文件</h5><p>如果一个头文件被引用两次，编译器会处理两次头文件的内容，这将产生错误。</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> HEADER_FILE</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> HEADER_FILE</span>
+
+the entire header file file
+
+<span class="hljs-meta">#<span class="hljs-keyword">endif</span></span></code></pre>
+
+<h5 id="21-2-有条件引用"><a href="#21-2-有条件引用" class="headerlink" title="21.2. 有条件引用"></a>21.2. 有条件引用</h5><h5 id="21-3-c-和-h"><a href="#21-3-c-和-h" class="headerlink" title="21.3. .c 和 .h"></a>21.3. .c 和 .h</h5><ul>
+<li>.c文件，以c为扩展名，一般存储具体功能的实现；</li>
+<li>.h文件，称为头文件，一般存储类型的定义，函数的声明等。</li>
+</ul>
+<h4 id="22-错误处理"><a href="#22-错误处理" class="headerlink" title="22. 错误处理"></a>22. 错误处理</h4><ul>
+<li><strong>perror()</strong> 函数显示您传给它的字符串，后跟一个冒号、一个空格和当前 errno 值的文本表示形式。</li>
+<li><strong>strerror()</strong> 函数，返回一个指针，指针指向当前 errno 值的文本表示形式。</li>
+</ul>
+<h4 id="23-可变参数"><a href="#23-可变参数" class="headerlink" title="23. 可变参数"></a>23. 可变参数</h4><p>==需要引入#include &lt;stdarg.h&gt;==</p>
+<pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">func</span><span class="hljs-params">(<span class="hljs-type">int</span> , ...)</span>;
+<span class="hljs-comment">// int表示有几个参数 最后面必须接...</span>
+
+va_list valist;
+<span class="hljs-type">double</span> sum = <span class="hljs-number">0.0</span>;
+<span class="hljs-type">int</span> i;
+<span class="hljs-comment">/* 为 num 个参数初始化 valist */</span>
+va_start(valist, num);
+
+<span class="hljs-comment">/* 访问所有赋给 valist 的参数 */</span>
+<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; num; i++)
+&#123;
+    <span class="hljs-comment">/*  每次调用 va_arg 都会修改用 va_list 声明的对象，</span>
+<span class="hljs-comment">    从而使该对象指向参数列表中的下一个参数；  */</span>
+    sum += va_arg(valist, <span class="hljs-type">int</span>);
+&#125;
+<span class="hljs-comment">/* 清理为 valist 保留的内存 */</span>
+va_end(valist);</code></pre>
+
+<ul>
+<li>函数参数的传递存储在栈中,从右至左压入栈中,压栈过程为递减。</li>
+<li> 参数的传递以4字节对齐,float/double这里不讨论。</li>
+</ul>
+<h4 id="24-内存管理"><a href="#24-内存管理" class="headerlink" title="24. 内存管理"></a>24. 内存管理</h4><p>==&lt;stdlib.h&gt;==</p>
+<p>| 函数|描述                                                   |<br>|:———————————————————– |<br>| <strong>void *calloc(int num, int size);</strong> |在内存中动态地分配 num 个长度为 size 的连续空间，并将每一个字节都初始化为 0。所以它的结果是分配了 num*size 个字节长度的内存空间，并且每个字节的值都是0。 |<br>| <strong>void free(void *address);</strong> |该函数释放 address 所指向的内存块,释放的是动态分配的内存空间。 |<br>| <strong>void *malloc(int num);</strong> |在堆区分配一块指定大小的内存空间，用来存放数据。这块内存空间在函数执行完成后不会被初始化，它们的值是未知的。 |<br>| <strong>void *realloc(void *address, int newsize);</strong> |该函数重新分配内存，把内存扩展到 <strong>newsize</strong>。 |</p>
+  
+        </div>
+    </div>
+</div>
+
+
+    
+<script src="../../../js/index.js"></script>
+
+  </body>
+</html>
